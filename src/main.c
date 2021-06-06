@@ -13,7 +13,7 @@ https://web.mit.edu/jorloff/www/chaosTalk/double-pendulum/double-pendulum-en.htm
 If the finite time T interval(TOTAL_TIME) is devided into n intervals, with the time step of h (TIME_STEP) then
 n = T/h - intervals, and n+1 finite points k, where k belongs to [0, T], and i to [0, n+1]
 
-Intial position and velocity pairs are given as an input [m, m/s] for both pendulum elements,
+Intial position and velocity pairs are given as an input [rad, rad/s] for both pendulum elements,
 and then the following values are computed using equations for acceleration.
 
 
