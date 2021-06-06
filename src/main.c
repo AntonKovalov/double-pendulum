@@ -35,7 +35,6 @@ int main() {
     simulate_double_pendulum(&theta_1, &theta_2, &omega_1, &omega_2, &alfa_1, &alfa_2);
 }
 
-
 void simulate_double_pendulum(double* theta_1, double* theta_2, double* omega_1, double* omega_2, double* alfa_1, double* alfa_2) {
     #ifdef EULER
     printf("Computing with Euler's method\n");
