@@ -1,4 +1,4 @@
-**Concept**  
+#**Concept**  
 This repository contains an attempt to simulate physics of double pendulum system. It is done for educational purposes only.   
 PDEs used to solve this problem are taken from the MIT webpage(linked below):  
 
@@ -6,7 +6,8 @@ https://web.mit.edu/jorloff/www/chaosTalk/double-pendulum/double-pendulum-en.htm
 
 More on this particular system can be researched on the aforementioned resource or elsewhere.  
 
-**Usage and outline**  
+
+#**Usage and outline**  
 All source files are located in the src directory.  
 init.h - contains most of the configuration variables like simulation time, length of elements, mass of elements, and descritization constatns.  
 Commenting or uncommenting EULER/ RUNGEE-KUTTA definitions will result in either one methods to solve the system.  
@@ -17,7 +18,8 @@ After starting the program, please enter 4 values - theta_1, theta_2, omega_1, o
 If succesfully run, the output file data.xlsx will appear in project root directory.  
 data.xlsx - column notations (t - time, a - angle, x - x position, y - y posistion)  
 
-**Build**  
+
+#**Build**  
 Requires gcc for building, and gnu make utility.  
 If none, run the following in the command line:  
 `brew install autoconf automake libtool`  
