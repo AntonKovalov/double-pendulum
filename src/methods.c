@@ -5,6 +5,7 @@ void euler(double theta_1, double theta_2, double omega_1, double omega_2, doubl
     double current_time = 0;
     FILE* file; 
     file = fopen("data.xlsx", "w+");
+    fprintf(file, DATA_HEAD_FORMAT, 't', 'a', 'x', 'y', 'a', 'x', 'y' );
     do {
         current_time += TIME_STEP;
         
@@ -15,7 +16,7 @@ void euler(double theta_1, double theta_2, double omega_1, double omega_2, doubl
         omega_2 += alfa_2*TIME_STEP;
 
         compute_angular_acceleration(theta_1, theta_2, omega_1, omega_2, &alfa_1, &alfa_2);
-        write_data(file, theta_1, theta_2);
+        write_data(file, current_time, theta_1, theta_2);
     } while(current_time < TOTAL_TIME);
     fclose(file);
 }
