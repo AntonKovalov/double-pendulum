@@ -33,3 +33,7 @@ void compute_angular_acceleration(double theta_1, double theta_2, double omega_1
               /
              ( l_2*(2*m_1 + m_2 - m_2*cos(2*(theta_2 - theta_2)))  );
 }
+
+int equal(double a, double  b) {
+    return fabs(a - b) < EQUALS_PRECISION_ERROR;
+}
