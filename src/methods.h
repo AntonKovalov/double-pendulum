@@ -3,6 +3,6 @@
 #include "init.h"
 #include "utils.h"
 
-void euler(double, double, double, double, double, double);
+void euler(FILE* file, double, double, double, double, double, double);
 void runge_kutta(double, double, double, double, double, double);
 #endif

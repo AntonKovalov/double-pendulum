@@ -10,12 +10,6 @@ int main() {
     double theta_1, theta_2, omega_1, omega_2, alfa_1, alfa_2;
     printf("Hello! This is an attempt to simulate double pendulum physics\n");
     printf("As this is the initial value problem - please input the following data: theta_1, theta_2, omega_1, omega_2\n");
-
-    m_1 = 1.0;                   // kg
-    m_ratio = 1.0;               // kg/kg  m_1/m_2
-    l_1 = 1.0;                   // m
-    l_ratio = 1.0;               // m/m  l_1/l_2
-    periodic_count = 0;
     
     init(&theta_1, &theta_2, &omega_1, &omega_2, &alfa_1, &alfa_2);
 
@@ -32,6 +26,10 @@ int main() {
 }
 
 void simulate_double_pendulum(double* theta_1, double* theta_2, double* omega_1, double* omega_2, double* alfa_1, double* alfa_2) {
+
+    FILE* file;
+    file = fopen("data-euler.xlsx", "w+");
+
     #ifdef EULER
     printf("Computing with Euler's method\n");
     
@@ -43,7 +41,7 @@ void simulate_double_pendulum(double* theta_1, double* theta_2, double* omega_1,
     
     do {
        printf("\t%lf %lf\n", l_ratio, m_ratio);
-       euler(*theta_1, *theta_2, *omega_1, *omega_2, *alfa_1, *alfa_2);
+       euler(file, *theta_1, *theta_2, *omega_1, *omega_2, *alfa_1, *alfa_2);
        l_ratio += change_factor*LENGTH_RATIO_STEP;
        
        if( equal(l_ratio, MIN_LENGTH_RATIO - 0.1, EQUALS_PRECISION_ERROR) ) {
@@ -64,7 +62,7 @@ void simulate_double_pendulum(double* theta_1, double* theta_2, double* omega_1,
     
     do {
        printf("\t%lf %lf\n", l_ratio, m_ratio);      
-       euler(*theta_1, *theta_2, *omega_1, *omega_2, *alfa_1, *alfa_2);
+       euler(file, *theta_1, *theta_2, *omega_1, *omega_2, *alfa_1, *alfa_2);
        m_ratio += change_factor*MASS_RATIO_STEP;
        if( equal(m_ratio, MIN_MASS_RATIO - 0.1, EQUALS_PRECISION_ERROR) ) {
             change_factor *= -1;

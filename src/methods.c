@@ -1,10 +1,9 @@
 #include "methods.h"
 
-void euler(double theta_1, double theta_2, double omega_1, double omega_2, double alfa_1, double alfa_2) {
+void euler(FILE* file, double theta_1, double theta_2, double omega_1, double omega_2, double alfa_1, double alfa_2) {
     
     double current_time = 0;
-    FILE* file; 
-    file = fopen("data-euler.xlsx", "w+");
+    
     fprintf(file, "%c\t%c\n%lf\t%lf\n", 'l', 'm', l_ratio, m_ratio);
     fprintf(file, DATA_HEAD_FORMAT, 't', 'a', 'x', 'y', 'a', 'x', 'y' );
    
